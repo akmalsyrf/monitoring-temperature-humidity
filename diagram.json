@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Ahmad Soni Alfathani",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 123.62, "left": 82.79, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -17.82,
+      "left": 200.44,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 60.08,
+      "left": 226.34,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 60.95,
+      "left": 201.03,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -16.44,
+      "left": 231.61,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 120.45,
+      "left": 433.55,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -80.46, "left": 297.57, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 397.56,
+      "left": 63.96,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "dht1:SDA", "uno:5", "orange", [ "v43.21", "h-22.86" ] ],
+    [ "dht1:GND", "uno:GND.3", "black", [ "v77.44", "h34.19", "v232.92", "h-106.02" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v16.5", "h84.72", "v307.22", "h-141.92" ] ],
+    [ "r1:2", "uno:8", "green", [ "h0" ] ],
+    [ "r2:2", "uno:9", "blue", [ "h0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0" ] ],
+    [ "led1:A", "r2:1", "green", [ "v0" ] ],
+    [ "led2:C", "uno:GND.1", "black", [ "v-1.37", "h-10.99", "v-45.51", "h-32.62" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v-1.51", "h-15.48" ] ],
+    [ "uno:A5", "lcd1:SCL", "violet", [ "v15.15", "h26.81", "v-135.82" ] ],
+    [ "uno:A4", "lcd1:SDA", "cyan", [ "v18.5", "h0.26", "v4.19", "h78.81", "v-168.52" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-19.63", "v213.59", "h-169.36" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-57.35", "v192.07", "h-108.99" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "ldr1:AO", "uno:A1", "green", [ "h0" ] ],
+    [ "ldr1:GND", "uno:GND.3", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
